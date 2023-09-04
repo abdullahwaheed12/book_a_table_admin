@@ -16,10 +16,11 @@ class FirebaseAuthentication {
         password: Get.find<LoginLogic>().passwordController.text,
       ))
               .user;
+
       Get.find<GeneralController>().updateFormLoader(false);
       if (user != null) {
         log(user.uid.toString());
-        if (user.email.toString() == 'admin@table.com') {
+        if (user.email!.trim().toString() == 'admin@gmail.com') {
           Get.find<GeneralController>()
               .boxStorage
               .write('uid', user.uid.toString());

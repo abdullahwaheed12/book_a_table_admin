@@ -31,7 +31,7 @@ class _LogInState extends State<LogIn> {
     Size size = MediaQuery.of(context).size;
 
     return GetBuilder<LoginLogic>(
-      builder: (_loginLogic) {
+      builder: (loginLogic) {
         return Padding(
           padding: EdgeInsets.all(size.height > 770
               ? 64
@@ -77,7 +77,7 @@ class _LogInState extends State<LogIn> {
                               height: 8,
                             ),
 
-                            Container(
+                            SizedBox(
                               width: 30,
                               child: Divider(
                                 color: kPrimaryColor,
@@ -90,7 +90,7 @@ class _LogInState extends State<LogIn> {
                             ),
 
                             TextFormField(
-                              controller: _loginLogic.emailController,
+                              controller: loginLogic.emailController,
                               decoration: const InputDecoration(
                                 hintText: 'Email',
                                 labelText: 'Email',
@@ -114,7 +114,7 @@ class _LogInState extends State<LogIn> {
                             ),
 
                             TextFormField(
-                              controller: _loginLogic.passwordController,
+                              controller: loginLogic.passwordController,
                               obscureText: obscure!,
                               decoration: InputDecoration(
                                 hintText: 'Password',
@@ -157,7 +157,7 @@ class _LogInState extends State<LogIn> {
                                   onTap: () {
                                     FirebaseAuth.instance
                                         .sendPasswordResetEmail(
-                                            email: "admin@bookabite.app")
+                                            email: "admin@gmail.com")
                                         .then((_) {
                                       Get.snackbar(
                                           "link has been sent to your email for password reset",
